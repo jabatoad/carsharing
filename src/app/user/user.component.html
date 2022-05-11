@@ -1,0 +1,42 @@
+<section class="profile-block">
+  <div class="user-block">
+    <div class="container">
+      <div class="profile-container">
+        <h2 class="headline">Profile</h2>
+        <div class="profile-subcontainer">
+          <div class="profile-pic">
+            <!--        <img src="assets/img/" alt="avatar">-->
+          </div>
+          <div class="profile-info">
+            <p class="profile-info-username">{{user.username}}</p>
+            <p class="profile-info-rides">Rides: {{rides.length}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="history-container">
+        <h2 class="headline">History</h2>
+        <div class="rides" *ngIf="rides.length > 0; else warning">
+          <div class="rides-list">
+            <div class="rides-list__item" *ngFor="let ride of rides">
+              <div class="rides-list__item__data">
+                <img class="rides-icon" src='assets/img/{{ride.imgName}}.png' alt="car icon">
+                <div class="rides-list__item__data__text">
+                  <div class="rides-list__item__data__text__upper">
+                    <p class="rides-name">{{ride.car}}</p>
+                  </div>
+                  <div class="rides-list__item__data__text__lower">
+                    <p class="rides-time">Time: {{ride.time}}m</p>
+                    <p class="rides-rate">Rate: {{ride.rate}}$</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #warning>
+          <p class="warning">You don't have any rides yet</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<section class="signup-block">
+  <div class="container">
+    <h2 class="headline">Sign Up</h2>
+    <form [formGroup]="form" class="form" (ngSubmit)="singUp(form.value)">
+      <label for="phone-input" class="label">Enter telephone: </label>
+      <input [class.error]="form.controls['phone']?.errors && form.controls['phone'].touched" type="text" class="input"
+             formControlName="phone"
+             id="phone-input"
+             placeholder="201-555-0123">
+      <label for="username-input" class="label">Enter username: </label>
+      <input [class.error]="form.controls['username']?.errors && form.controls['username'].touched" type="text"
+             class="input" formControlName="username" id="username-input" placeholder="David Miller">
+      <label for="password-input" class="label">Enter password: </label>
+      <input [class.error]="form.controls['password']?.errors && form.controls['password'].touched" type="password"
+             class="input" formControlName="password" id="password-input" placeholder="********">
+
+      <input class="action-button" type="submit" value="Submit" [disabled]="form.invalid">
+    </form>
+  </div>
+</section>

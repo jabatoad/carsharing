@@ -1,0 +1,12 @@
+<div class="users-block">
+  <div class="container">
+    <h2 class="headline">User List</h2>
+    <div class="users-list">
+      <div class="users-list__item" *ngFor="let user of usersArray; index as i">
+        <p class="users-list__item__username">{{user.username}}</p>
+        <img *ngIf="!user.admin" (click)="deleteUser(i)" class="users-list__item__cross" src="assets/img/cross.svg"
+             alt="cross">
+      </div>
+    </div>
+  </div>
+</div>

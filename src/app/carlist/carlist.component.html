@@ -1,0 +1,28 @@
+<section class="carlist-block">
+  <div class="container">
+    <h2 class="headline">Car List</h2>
+    <div class="cars">
+      <input class="search" type="text" placeholder="Search:" [(ngModel)]="term">
+      <div class="cars-list">
+        <div class="cars-list__item" *ngFor="let car of carsArray | filter: term; index as i">
+          <div class="cars-list__item__data">
+            <img class="cars-icon" src='assets/img/{{car.imgName}}.png' alt="car icon">
+            <div class="cars-list__item__data__text">
+              <div class="cars-list__item__data__text__upper">
+                <p class="cars-name">{{car.name}} {{car.year}}</p>
+                <img *ngIf="car.eco" class="cars-eco" src="assets/img/eco.svg" alt="eco">
+              </div>
+              <div class="cars-list__item__data__text__lower">
+                <p class="cars-range">Range ~ {{car.range}}km</p>
+                <p class="cars-price">Price: {{car.price}}$/min</p>
+              </div>
+            </div>
+          </div>
+          <a>
+            <button (click)="rentCar(car, i)" class="action-button">Rent a car</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<section class="drive-block">
+  <div class="container">
+    <h2 class="headline">Rent A Car</h2>
+    <div class="map">
+      <agm-map [zoom]="14" [latitude]="lat" [longitude]="lng" [streetViewControl]="false" [usePanning]="true">
+        <agm-marker (markerClick)="showCar(i)" [iconUrl]="markObject"
+                    *ngFor="let mark of
+      marks; index as i" [latitude]="mark.lat"
+                    [longitude]="mark.lng"></agm-marker>
+      </agm-map>
+      <div class="cars-list__item" *ngIf="carWindow">
+        <div class="cars-list__item__data">
+          <img class="cars-icon" src='assets/img/{{currentCar.imgName}}.png' alt="car icon">
+          <div class="cars-list__item__data__text">
+            <p class="cars-name">{{currentCar.name}} {{currentCar.year}}</p>
+            <div class="cars-list__item__data__text__lower" *ngIf="!currentCar.rented; else rideInfo">
+              <p class="cars-range">Range ~ {{currentCar.range}}km</p>
+              <p class="cars-price">Price: {{currentCar.price}}$/min</p>
+            </div>
+            <ng-template #rideInfo>
+              <div class="cars-list__item__data__text__lower">
+                <p class="cars-range">Time: {{countdown.minutes < 10 ? '0' + countdown.minutes : countdown.minutes}}:{{countdown.seconds < 10 ? '0' + countdown.seconds : countdown.seconds}}m</p>
+                <p class="cars-price">Rate: {{rawRate}}$</p>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="drive-info">
+          <a *ngIf="!currentCar.rented; else end">
+            <button class="action-button" (click)="rentCar()">Start a ride</button>
+          </a>
+          <ng-template #end>
+            <a>
+              <button (click)="endRide()" class="action-button">End a ride</button>
+            </a>
+          </ng-template>
+        </div>
+      </div>
+      <snack-bar-container></snack-bar-container>
+    </div>
+  </div>
+</section>
