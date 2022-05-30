@@ -23,6 +23,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {UpperCasePipe} from "@angular/common";
 import {UserComponent} from "./user/user.component";
 import {UserlistComponent} from "./user/userlist/userlist.component";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {UserlistComponent} from "./user/userlist/userlist.component";
     MatFormFieldModule,
     MatMenuModule,
     MatIconModule,
+    MatButtonModule,
   ],
   providers: [MatSnackBarConfig],
   bootstrap: [AppComponent]

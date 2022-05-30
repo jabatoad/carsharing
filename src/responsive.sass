@@ -1,0 +1,47 @@
+@media screen and (max-width: 1248px)
+  .container
+    margin: 0 24px
+@media screen and (max-width: 1050px)
+  .home
+    &-block
+      .container
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
+    &-text
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-bottom: 50px
+      text-align: center
+    &-illustration
+      display: none
+@media screen and (max-width: 850px)
+  .cars-list
+    &__item, &__item__data
+      display: flex
+      flex-direction: column
+      align-items: center
+    &__item
+      &__data
+        &__text
+          align-items: center !important
+          margin: 20px 0 !important
+  .headline
+    font-size: 48px !important
+  .home-block
+    .container
+      padding: 63px 0 !important
+@media screen and (max-width: 500px)
+  .cars
+    &-range
+      border-right: 0 !important
+      margin-bottom: 5px
+    &-list
+      &__item
+        &__data
+          &__text
+            &__lower
+              display: flex
+              flex-direction: column
+              align-items: center

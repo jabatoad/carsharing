@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Mark} from "../core/models/Mark";
+import {Mark} from "../core";
 import {Car, CarsService, Ride, Timer, User} from "../core";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -32,7 +32,6 @@ export class DriveComponent implements OnInit {
     minutes: 0,
     seconds: 0,
   }
-  isBooked: boolean = false
   rawRate: string = '0.00'
   rideInterval: any
   user: User = {} as User
